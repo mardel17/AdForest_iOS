@@ -56,7 +56,7 @@ class AadPostController: UIViewController, NVActivityIndicatorViewable, UITableV
     var DeletedImagesArray = [AdPostImageArray]()
     var AdPostImagesDeleted = false
     
-    var videoWarning = "", videoUrl = "", videoSelectedMessage = ""
+    var videoWarning = "", videoUrl = "", videoText = "", videoSelectedMessage = ""
     var videoTimeLimit = 0
     
     //MARK:- View Life Cycle
@@ -331,6 +331,12 @@ class AadPostController: UIViewController, NVActivityIndicatorViewable, UITableV
                     postVC.isImg = self.isImage
                     postVC.requireMessage = self.requireMessage
                     
+                    postVC.videoWarning = self.videoWarning
+                    postVC.videoUrl = self.videoUrl
+                    postVC.videoText = self.videoText
+                    postVC.videoSelectedMessage = self.videoSelectedMessage
+                    postVC.videoTimeLimit = self.videoTimeLimit
+                    
                     self.navigationController?.pushViewController(postVC, animated: true)
                 }
             }
@@ -373,6 +379,13 @@ class AadPostController: UIViewController, NVActivityIndicatorViewable, UITableV
                     postVC.isBid = self.isBidding
                     postVC.isImg = self.isImage
                     postVC.requireMessage = self.requireMessage
+                    
+                    postVC.videoWarning = self.videoWarning
+                    postVC.videoUrl = self.videoUrl
+                    postVC.videoText = self.videoText
+                    postVC.videoSelectedMessage = self.videoSelectedMessage
+                    postVC.videoTimeLimit = self.videoTimeLimit
+                    
                     self.navigationController?.pushViewController(postVC, animated: true)
                 }
             }
@@ -411,6 +424,12 @@ class AadPostController: UIViewController, NVActivityIndicatorViewable, UITableV
                 postVC.isBid = self.isBidding
                 postVC.isImg = self.isImage
                 postVC.requireMessage = self.requireMessage
+            
+                postVC.videoWarning = self.videoWarning
+                postVC.videoUrl = self.videoUrl
+                postVC.videoText = self.videoText
+                postVC.videoSelectedMessage = self.videoSelectedMessage
+                postVC.videoTimeLimit = self.videoTimeLimit
                 
                 self.navigationController?.pushViewController(postVC, animated: true)
             }
@@ -677,6 +696,14 @@ class AadPostController: UIViewController, NVActivityIndicatorViewable, UITableV
                 self.newArray = successResponse.data.fields
                 self.imagesArray = successResponse.data.adImages
                 self.requireMessage = successResponse.extra.requiredMessage
+                
+                //Video
+                self.videoText = successResponse.extra.videoText
+                self.videoSelectedMessage = successResponse.extra.videoSelectedMessage
+                self.videoWarning = successResponse.extra.videoWarning
+                self.videoTimeLimit = successResponse.extra.videoTimeLimit
+                self.videoUrl = successResponse.data.videoUrl
+                
                 self.forwardButton()
                 
                 for imageId in self.imagesArray {

@@ -24,6 +24,7 @@ struct AdPostData {
     var titleFieldName : String!
     var updateNotice : String!
     var catTemplateOn : Bool!
+    var videoUrl : String!
     
     
     
@@ -62,6 +63,7 @@ struct AdPostData {
         titleFieldName = dictionary["title_field_name"] as? String
         updateNotice = dictionary["update_notice"] as? String
         catTemplateOn = dictionary["cat_template_on"] as? Bool
+        videoUrl = dictionary["videoUrl"] as? String
        
         
     }
@@ -122,6 +124,11 @@ struct AdPostData {
         if catTemplateOn != nil{
             dictionary["cat_template_on"] = catTemplateOn
         }
+        
+        if videoUrl != nil{
+            dictionary["videoUrl"] = title
+        }
+        
         return dictionary
     }
     

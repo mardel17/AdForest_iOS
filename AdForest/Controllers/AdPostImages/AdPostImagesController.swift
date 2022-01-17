@@ -90,6 +90,10 @@ class AdPostImagesController: UIViewController, UITableViewDelegate, UITableView
     var page2Validation = false
     var checkArray: [Bool] = []
     var correctNow = false
+    
+    var videoWarning = "", videoUrl = "", videoText = "", videoSelectedMessage = ""
+    var videoTimeLimit = 0
+    
     //MARK:- View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -446,6 +450,20 @@ class AdPostImagesController: UIViewController, UITableViewDelegate, UITableView
 //
 //    }
     @objc func onForwardButtonClciked() {
+        
+        if videoUrl.isEmpty {
+            let alert = Constants.showBasicAlert(message: self.requireMessage)
+            self.presentVC(alert)
+            
+            if let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 3)) as? UploadVideoCell{
+                cell.shakeCells()
+                cell.containerView.layer.borderColor = UIColor.red.cgColor
+                cell.containerView.layer.borderWidth = 5
+            }
+            
+            return
+        }
+        
 //        var sectionRequired = 0
 //        var indexRequired = 0
         var requiredCheck = false
@@ -841,7 +859,7 @@ class AdPostImagesController: UIViewController, UITableViewDelegate, UITableView
     //MARK:- table View Delegate Methods
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -855,6 +873,11 @@ class AdPostImagesController: UIViewController, UITableViewDelegate, UITableView
         else if section == 2 {
             returnValue = fieldsArray.count
         }
+        
+        //Video
+        if section == 3 {
+            returnValue =  1
+        }
       return returnValue
     }
     
@@ -863,6 +886,31 @@ class AdPostImagesController: UIViewController, UITableViewDelegate, UITableView
         
         
         //var isB = UserDefaults.standard.bool(forKey: "isBid")
+        
+        //Video
+        if section == 3 {
+            let cell: UploadVideoCell = tableView.dequeueReusableCell(withIdentifier: "UploadVideoCell", for: indexPath) as! UploadVideoCell
+            
+            if self.videoUrl.isEmpty {
+                cell.lblVideo.text = self.videoText
+                cell.imgCheck.isHidden = true
+            } else {
+                cell.lblVideo.text = self.videoSelectedMessage
+                cell.imgCheck.isHidden = false
+            }
+            
+            cell.btnUploadVideo = { () in
+                let picker = UIImagePickerController()
+                picker.delegate = self
+                picker.allowsEditing = false
+                picker.sourceType = .savedPhotosAlbum
+                picker.mediaTypes = ["public.movie"]
+                picker.videoMaximumDuration = TimeInterval(self.videoTimeLimit)
+                self.present(picker, animated: true, completion: nil)
+            }
+            
+            return cell
+        }
         
         if section == 0 {
             let cell: UploadImageCell = tableView.dequeueReusableCell(withIdentifier: "UploadImageCell", for: indexPath) as! UploadImageCell
@@ -1250,7 +1298,12 @@ class AdPostImagesController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let section = indexPath.section
         var height : CGFloat = 0
-        if section == 0 {
+        
+        if section == 3 {
+            //Video
+            height = 80
+            
+        } else if section == 0 {
             
               height = 100
 
@@ -1319,10 +1372,63 @@ class AdPostImagesController: UIViewController, UITableViewDelegate, UITableView
             dismiss(animated: true, completion: nil)
            
         }
+        
+        if let url = info[UIImagePickerControllerMediaURL] as? URL {
+            dismiss(animated: true, completion: nil)
+            
+            let param: [String: Any] = [ "ad_id": String(adID)]
+            print(param)
+            self.adForest_uploadVideo(param: param as NSDictionary, filUrl: url)
+        }
     }
     
    
     //MARK:- API Call
+    
+    //post video
+    
+    func adForest_uploadVideo(param: NSDictionary, filUrl: URL) {
+        //self.showLoader()
+        uploadingProgressBar.progress = 0.0
+        uploadingProgressBar.detailTextLabel.text = "0% Completed"
+        uploadingProgressBar.show(in: view)
+        
+        let url = Constants.URL.baseUrl+Constants.URL.adPostUploadVideo
+        print(url)
+        NetworkHandler.upload(url: url, fileUrl: filUrl, fileName: "File", params: param  as? Parameters, uploadProgress: { (uploadProgress) in
+            print(uploadProgress)
+            let currentProgress = Float(uploadProgress)/100
+            self.uploadingProgressBar.detailTextLabel.text = "\(uploadProgress)% Completed"
+            self.uploadingProgressBar.setProgress(currentProgress, animated: true)
+        }, success: { (response) in
+            let dictionary = response as! [String: Any]
+            let successResponse = AdPostImagesRoot(fromDictionary: dictionary)
+            
+            self.uploadingProgressBar.dismiss(animated: true)
+            //self.stopAnimating()
+            if successResponse.success {
+                if let dataData = dictionary["data"] as? [String:Any]{
+                    self.videoUrl = dataData["videoUrl"] as? String ?? ""
+                }
+                
+//                UserDefaults.standard.set( self.imagesMsg, forKey: "imgMsg")
+                self.tableView.reloadData()
+            }
+            else {
+                let alert = Constants.showBasicAlert(message: successResponse.message)
+                self.presentVC(alert)
+            }
+            
+        }, failure: { (error) in
+            self.stopAnimating()
+            self.uploadingProgressBar.dismiss(animated: true)
+            let alert = Constants.showBasicAlert(message: error.message)
+            self.presentVC(alert)
+        })
+
+        
+        
+    }
     
     //post images
     

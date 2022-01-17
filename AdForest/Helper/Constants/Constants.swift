@@ -87,6 +87,7 @@ class Constants {
         static let adPost = "post_ad/is_update"
         static let adPostDynamicField = "post_ad/dynamic_fields"
         static let adPostSubCategory = "post_ad/subcats"
+        static let adPostUploadVideo = "post_ad/video"
         static let adPostUploadImages = "post_ad/image"
         static let adPostDeleteImage = "post_ad/image/delete"
         static let adPostSubLocations = "post_ad/sublocations"

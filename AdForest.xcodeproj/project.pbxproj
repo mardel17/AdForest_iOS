@@ -645,6 +645,7 @@
 		18F6998B25FB3F4D005027CB /* WhizChatMapReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6998A25FB3F4D005027CB /* WhizChatMapReceiver.swift */; };
 		18FDE08B26F3664D00DF8800 /* OTPControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FDE08A26F3664D00DF8800 /* OTPControllerViewController.swift */; };
 		18FE9C58236811A500E8756F /* MapBoxPlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FE9C57236811A500E8756F /* MapBoxPlacesViewController.swift */; };
+		1A089AEB278F471700C06932 /* UploadVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A089AEA278F471600C06932 /* UploadVideoCell.swift */; };
 		9601E7C82463E49600036649 /* LinkedInEmailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9601E7C72463E49600036649 /* LinkedInEmailModel.swift */; };
 		9601E7CA2463E4B500036649 /* LinkedInProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9601E7C92463E4B500036649 /* LinkedInProfileModel.swift */; };
 		9606055D250B56FC00A5219F /* MarvelHomeLatestVerticalDefaultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9606055C250B56FB00A5219F /* MarvelHomeLatestVerticalDefaultTableViewCell.swift */; };
@@ -1378,6 +1379,7 @@
 		18F6998A25FB3F4D005027CB /* WhizChatMapReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhizChatMapReceiver.swift; sourceTree = "<group>"; };
 		18FDE08A26F3664D00DF8800 /* OTPControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPControllerViewController.swift; sourceTree = "<group>"; };
 		18FE9C57236811A500E8756F /* MapBoxPlacesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBoxPlacesViewController.swift; sourceTree = "<group>"; };
+		1A089AEA278F471600C06932 /* UploadVideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadVideoCell.swift; sourceTree = "<group>"; };
 		27AC9C51A44B89C024F3EEAA /* Pods_AdForest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdForest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C2A49835B1E8A0B4FBE203B /* Pods_AdForestUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdForestUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		40669BC4F56DF9BA67C9F467 /* Pods-AdForest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdForest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AdForest/Pods-AdForest.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1860,6 +1862,7 @@
 			children = (
 				181EED9020919E7D0018BB03 /* AdPostImagesController.swift */,
 				181EED922091E5D20018BB03 /* UploadImageCell.swift */,
+				1A089AEA278F471600C06932 /* UploadVideoCell.swift */,
 				181EED942091ECDD0018BB03 /* CollectionImageCell.swift */,
 				181EED962091F2030018BB03 /* DescriptionTableCell.swift */,
 				18247CD120974C9A000B9303 /* BidOnOffCell.swift */,
@@ -4645,6 +4648,7 @@
 				18C2CCF4206A4F1C00235E0E /* MyAdsText.swift in Sources */,
 				180519D6215A0BA300F74662 /* AppSettingRating.swift in Sources */,
 				07891CB022019609002C8D7D /* CheckBox.swift in Sources */,
+				1A089AEB278F471700C06932 /* UploadVideoCell.swift in Sources */,
 				184EDAEE2078979300A25228 /* AddDetailNotification.swift in Sources */,
 				CB4371672535D02100118E32 /* MultiAdsCollectionViewCell.swift in Sources */,
 				180DC40B2057F21500A75C60 /* BlogDetailController.swift in Sources */,

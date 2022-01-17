@@ -21,6 +21,11 @@ struct AdPostExtra {
     var termsUrl : String!
     var requiredMessage: String!
     
+    //Video
+    var videoText: String!
+    var videoSelectedMessage: String!
+    var videoWarning: String!
+    var videoTimeLimit: Int!
     
     /**
      * Instantiate the instance using the passed dictionary values to set the properties values
@@ -43,6 +48,10 @@ struct AdPostExtra {
         termsCondition = dictionary["adpost_terms_title"] as? String
         requiredMessage = dictionary["require_message"] as? String
         
+        videoText = dictionary["video_text"] as? String
+        videoSelectedMessage = dictionary["video_selected_message"] as? String
+        videoWarning = dictionary["video_message"] as? String
+        videoTimeLimit = Int(dictionary["video_timeframe_limit"] as? String ?? "") ?? 0        
     }
     
     /**

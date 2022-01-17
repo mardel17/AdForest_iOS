@@ -10556,8 +10556,79 @@
                                 <rect key="frame" x="0.0" y="88" width="320" height="742"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UploadVideoCell" id="3qw-SS-2uL" customClass="UploadVideoCell" customModule="AdForest" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="62.333332061767578"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3qw-SS-2uL" id="Pny-LW-CaF">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="62.333332061767578"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AZE-NX-euA">
+                                                    <rect key="frame" x="8" y="8" width="304" height="46.333333333333336"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sEm-zD-gWt">
+                                                            <rect key="frame" x="109" y="7.9999999999999982" width="86" height="30.333333333333329"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check" translatesAutoresizingMaskIntoConstraints="NO" id="UaW-f4-SeT">
+                                                                    <rect key="frame" x="0.0" y="-4.6666666666666661" width="40" height="40"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="40" id="JIH-CK-ST4"/>
+                                                                        <constraint firstAttribute="height" constant="40" id="gNy-w5-3ud"/>
+                                                                        <constraint firstAttribute="width" secondItem="UaW-f4-SeT" secondAttribute="height" multiplier="1:1" id="tIW-yy-LQM"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HyU-ai-q77">
+                                                                    <rect key="frame" x="48" y="6.3333333333333321" width="38" height="18"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6GU-Eb-WxY">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="86" height="30.333333333333332"/>
+                                                                    <connections>
+                                                                        <action selector="actionUploadVideo:" destination="3qw-SS-2uL" eventType="touchUpInside" id="pzp-c0-0Nb"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <constraints>
+                                                                <constraint firstItem="HyU-ai-q77" firstAttribute="centerY" secondItem="sEm-zD-gWt" secondAttribute="centerY" id="CKU-AW-Y9e"/>
+                                                                <constraint firstAttribute="bottom" secondItem="6GU-Eb-WxY" secondAttribute="bottom" id="FH6-vT-aa1"/>
+                                                                <constraint firstAttribute="trailing" secondItem="6GU-Eb-WxY" secondAttribute="trailing" id="FSd-kM-HqI"/>
+                                                                <constraint firstItem="UaW-f4-SeT" firstAttribute="leading" secondItem="sEm-zD-gWt" secondAttribute="leading" id="KzQ-dY-qEW"/>
+                                                                <constraint firstItem="UaW-f4-SeT" firstAttribute="centerY" secondItem="sEm-zD-gWt" secondAttribute="centerY" id="XCJ-cj-FOM"/>
+                                                                <constraint firstItem="HyU-ai-q77" firstAttribute="leading" secondItem="UaW-f4-SeT" secondAttribute="trailing" constant="8" id="bcF-4D-bOW"/>
+                                                                <constraint firstItem="6GU-Eb-WxY" firstAttribute="leading" secondItem="sEm-zD-gWt" secondAttribute="leading" id="k4G-6i-RDQ"/>
+                                                                <constraint firstAttribute="trailing" secondItem="HyU-ai-q77" secondAttribute="trailing" id="vrM-oX-0b9"/>
+                                                                <constraint firstItem="6GU-Eb-WxY" firstAttribute="top" secondItem="sEm-zD-gWt" secondAttribute="top" id="zeS-bW-qhp"/>
+                                                            </constraints>
+                                                        </view>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="sEm-zD-gWt" secondAttribute="bottom" constant="8" id="K88-2l-Sup"/>
+                                                        <constraint firstItem="sEm-zD-gWt" firstAttribute="centerY" secondItem="AZE-NX-euA" secondAttribute="centerY" id="Ql3-9i-XTz"/>
+                                                        <constraint firstItem="sEm-zD-gWt" firstAttribute="top" secondItem="AZE-NX-euA" secondAttribute="top" constant="8" id="XjR-hC-hx3"/>
+                                                        <constraint firstItem="sEm-zD-gWt" firstAttribute="centerX" secondItem="AZE-NX-euA" secondAttribute="centerX" id="ybH-j6-uyE"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <gestureRecognizers/>
+                                            <constraints>
+                                                <constraint firstItem="AZE-NX-euA" firstAttribute="leading" secondItem="Pny-LW-CaF" secondAttribute="leading" constant="8" id="7nu-Lx-6lu"/>
+                                                <constraint firstItem="AZE-NX-euA" firstAttribute="top" secondItem="Pny-LW-CaF" secondAttribute="top" constant="8" id="9QF-SA-feD"/>
+                                                <constraint firstAttribute="bottom" secondItem="AZE-NX-euA" secondAttribute="bottom" constant="8" id="SBA-GQ-Vyd"/>
+                                                <constraint firstAttribute="trailing" secondItem="AZE-NX-euA" secondAttribute="trailing" constant="8" id="uvN-oG-HmY"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="containerView" destination="AZE-NX-euA" id="ahH-bw-Fu5"/>
+                                            <outlet property="imgCheck" destination="UaW-f4-SeT" id="YY9-Yf-5uZ"/>
+                                            <outlet property="lblVideo" destination="HyU-ai-q77" id="fbl-6q-ySX"/>
+                                        </connections>
+                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="UploadImageCell" rowHeight="88" id="q06-1z-P0T" customClass="UploadImageCell" customModule="AdForest" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="88"/>
+                                        <rect key="frame" x="0.0" y="90.333332061767578" width="320" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="q06-1z-P0T" id="vIZ-7L-Z5f">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
@@ -10653,7 +10724,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CollectionImageCell" rowHeight="127" id="agH-KJ-uyV" customClass="CollectionImageCell" customModule="AdForest" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="116" width="320" height="127"/>
+                                        <rect key="frame" x="0.0" y="178.33333206176758" width="320" height="127"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="agH-KJ-uyV" id="skl-ZD-s1h">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="127"/>
@@ -10787,7 +10858,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DescriptionTableCell" rowHeight="187" id="JhV-9g-VJL" customClass="DescriptionTableCell" customModule="AdForest" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="243" width="320" height="187"/>
+                                        <rect key="frame" x="0.0" y="305.33333206176758" width="320" height="187"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JhV-9g-VJL" id="iyL-HI-4Ei">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="187"/>
@@ -10838,7 +10909,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BidOnOffCell" rowHeight="70" id="N6B-PW-RVE" customClass="BidOnOffCell" customModule="AdForest" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="430" width="320" height="70"/>
+                                        <rect key="frame" x="0.0" y="492.33333206176758" width="320" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="N6B-PW-RVE" id="IYJ-by-ybu">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
@@ -10876,7 +10947,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TextFieldCell" rowHeight="70" id="SpN-8M-GQx" customClass="TextFieldCell" customModule="AdForest" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="500" width="320" height="70"/>
+                                        <rect key="frame" x="0.0" y="562.33333206176758" width="320" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SpN-8M-GQx" id="BOw-Dl-AOO">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
@@ -10928,7 +10999,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DropDownCell" rowHeight="70" id="oZ3-Ss-7QU" customClass="DropDownCell" customModule="AdForest" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="570" width="320" height="70"/>
+                                        <rect key="frame" x="0.0" y="632.33333206176758" width="320" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oZ3-Ss-7QU" id="D9i-sd-2jE">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
@@ -10982,7 +11053,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CheckBoxCell" rowHeight="121" id="ePK-SB-Mbm" customClass="CheckBoxCell" customModule="AdForest" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="640" width="320" height="121"/>
+                                        <rect key="frame" x="0.0" y="702.33333206176758" width="320" height="121"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ePK-SB-Mbm" id="IDf-73-dCL">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="121"/>
@@ -11072,7 +11143,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RadioColorAdTableViewCell" rowHeight="129" id="GRS-QR-Jfz" customClass="RadioColorAdTableViewCell" customModule="AdForest" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="761" width="320" height="129"/>
+                                        <rect key="frame" x="0.0" y="823.33333206176758" width="320" height="129"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GRS-QR-Jfz" id="pbJ-tu-1fw">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="129"/>
@@ -11153,7 +11224,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NumericRangeTableViewCell" rowHeight="179" id="pNz-Ft-W8J" customClass="NumericRangeTableViewCell" customModule="AdForest" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="890" width="320" height="179"/>
+                                        <rect key="frame" x="0.0" y="952.33333206176758" width="320" height="179"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pNz-Ft-W8J" id="Qij-Yz-i66">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="179"/>
@@ -11205,7 +11276,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AdpostRadioTableViewCell" rowHeight="129" id="laB-Bs-pvS" customClass="AdpostRadioTableViewCell" customModule="AdForest" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="1069" width="320" height="129"/>
+                                        <rect key="frame" x="0.0" y="1131.3333320617676" width="320" height="129"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="laB-Bs-pvS" id="Fpw-Jr-MS5">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="129"/>
@@ -11296,7 +11367,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CalenderSingleTableViewCell" rowHeight="78" id="RZ2-dj-LLM" customClass="CalenderSingleTableViewCell" customModule="AdForest" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="1198" width="320" height="78"/>
+                                        <rect key="frame" x="0.0" y="1260.3333320617676" width="320" height="78"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RZ2-dj-LLM" id="GJc-ao-x6x">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="78"/>
@@ -21646,6 +21717,98 @@
             <point key="canvasLocation" x="14003" y="2777"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="6FA-Zs-Y8L">
+            <size key="intrinsicContentSize" width="4" height="18.666666666666668"/>
+        </designable>
+        <designable name="7BW-4L-jSc">
+            <size key="intrinsicContentSize" width="79" height="15"/>
+        </designable>
+        <designable name="8oB-1K-dnw">
+            <size key="intrinsicContentSize" width="79" height="15"/>
+        </designable>
+        <designable name="AAY-Qn-Plr">
+            <size key="intrinsicContentSize" width="5" height="21"/>
+        </designable>
+        <designable name="Byu-Ct-Myt">
+            <size key="intrinsicContentSize" width="-1" height="65"/>
+        </designable>
+        <designable name="CF5-3L-7Av">
+            <size key="intrinsicContentSize" width="79" height="15"/>
+        </designable>
+        <designable name="ECE-wg-Jf8">
+            <size key="intrinsicContentSize" width="79" height="15"/>
+        </designable>
+        <designable name="F6p-Ir-FSq">
+            <size key="intrinsicContentSize" width="79" height="15"/>
+        </designable>
+        <designable name="GT5-kh-Fha">
+            <size key="intrinsicContentSize" width="87.666666666666671" height="26"/>
+        </designable>
+        <designable name="Gw4-6u-kh6">
+            <size key="intrinsicContentSize" width="5" height="22"/>
+        </designable>
+        <designable name="H60-gc-BRS">
+            <size key="intrinsicContentSize" width="4" height="18.666666666666668"/>
+        </designable>
+        <designable name="HYA-mM-Ltr">
+            <size key="intrinsicContentSize" width="5" height="23.333333333333332"/>
+        </designable>
+        <designable name="IT0-LC-MT8">
+            <size key="intrinsicContentSize" width="-1" height="65"/>
+        </designable>
+        <designable name="L4v-sX-w3a">
+            <size key="intrinsicContentSize" width="5" height="23.333333333333332"/>
+        </designable>
+        <designable name="OLc-ao-vsI">
+            <size key="intrinsicContentSize" width="4" height="18.666666666666668"/>
+        </designable>
+        <designable name="SrN-pP-arF">
+            <size key="intrinsicContentSize" width="79" height="15"/>
+        </designable>
+        <designable name="Wc0-bw-UDr">
+            <size key="intrinsicContentSize" width="4" height="18.666666666666668"/>
+        </designable>
+        <designable name="Wx3-33-6ZR">
+            <size key="intrinsicContentSize" width="60" height="26"/>
+        </designable>
+        <designable name="aAQ-d9-WeA">
+            <size key="intrinsicContentSize" width="85.666666666666671" height="26"/>
+        </designable>
+        <designable name="aTT-AJ-UHf">
+            <size key="intrinsicContentSize" width="4" height="18.666666666666668"/>
+        </designable>
+        <designable name="gtu-kF-iYc">
+            <size key="intrinsicContentSize" width="4" height="18.666666666666668"/>
+        </designable>
+        <designable name="kdw-fG-0Rg">
+            <size key="intrinsicContentSize" width="5" height="21"/>
+        </designable>
+        <designable name="oIa-oL-gjI">
+            <size key="intrinsicContentSize" width="-1" height="65"/>
+        </designable>
+        <designable name="pAS-pV-caL">
+            <size key="intrinsicContentSize" width="79" height="15"/>
+        </designable>
+        <designable name="r64-i1-YbQ">
+            <size key="intrinsicContentSize" width="5" height="22"/>
+        </designable>
+        <designable name="sAK-fs-wif">
+            <size key="intrinsicContentSize" width="5" height="22"/>
+        </designable>
+        <designable name="tOY-DO-v42">
+            <size key="intrinsicContentSize" width="104" height="20"/>
+        </designable>
+        <designable name="u4l-OG-JyN">
+            <size key="intrinsicContentSize" width="73.666666666666671" height="26"/>
+        </designable>
+        <designable name="w97-Q9-Q5p">
+            <size key="intrinsicContentSize" width="79" height="15"/>
+        </designable>
+        <designable name="xhY-BX-xiE">
+            <size key="intrinsicContentSize" width="4" height="18.666666666666668"/>
+        </designable>
+    </designables>
     <inferredMetricsTieBreakers>
         <segue reference="bzw-DV-dE3"/>
         <segue reference="7Nb-aF-ShY"/>
@@ -21676,6 +21839,7 @@
         <image name="cancel-music" width="16" height="16"/>
         <image name="car" width="940" height="627"/>
         <image name="carz" width="2000" height="2666.5"/>
+        <image name="check" width="50" height="50"/>
         <image name="checkmarkFilled" width="16" height="16"/>
         <image name="date" width="50" height="50"/>
         <image name="delete" width="50" height="50"/>
