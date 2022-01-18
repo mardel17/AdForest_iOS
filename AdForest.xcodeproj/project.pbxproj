@@ -646,6 +646,10 @@
 		18FDE08B26F3664D00DF8800 /* OTPControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FDE08A26F3664D00DF8800 /* OTPControllerViewController.swift */; };
 		18FE9C58236811A500E8756F /* MapBoxPlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FE9C57236811A500E8756F /* MapBoxPlacesViewController.swift */; };
 		1A089AEB278F471700C06932 /* UploadVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A089AEA278F471600C06932 /* UploadVideoCell.swift */; };
+		1A14050C27965D7800F5D62E /* CategoryVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A14050A27965D7800F5D62E /* CategoryVideoCell.swift */; };
+		1A14050D27965D7900F5D62E /* CategoryVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A14050B27965D7800F5D62E /* CategoryVideoCell.xib */; };
+		1A14051427969FDE00F5D62E /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A14051227969FDE00F5D62E /* VideoCell.swift */; };
+		1A14051527969FE000F5D62E /* VideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A14051327969FDE00F5D62E /* VideoCell.xib */; };
 		9601E7C82463E49600036649 /* LinkedInEmailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9601E7C72463E49600036649 /* LinkedInEmailModel.swift */; };
 		9601E7CA2463E4B500036649 /* LinkedInProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9601E7C92463E4B500036649 /* LinkedInProfileModel.swift */; };
 		9606055D250B56FC00A5219F /* MarvelHomeLatestVerticalDefaultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9606055C250B56FB00A5219F /* MarvelHomeLatestVerticalDefaultTableViewCell.swift */; };
@@ -1380,6 +1384,10 @@
 		18FDE08A26F3664D00DF8800 /* OTPControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPControllerViewController.swift; sourceTree = "<group>"; };
 		18FE9C57236811A500E8756F /* MapBoxPlacesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBoxPlacesViewController.swift; sourceTree = "<group>"; };
 		1A089AEA278F471600C06932 /* UploadVideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadVideoCell.swift; sourceTree = "<group>"; };
+		1A14050A27965D7800F5D62E /* CategoryVideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryVideoCell.swift; sourceTree = "<group>"; };
+		1A14050B27965D7800F5D62E /* CategoryVideoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryVideoCell.xib; sourceTree = "<group>"; };
+		1A14051227969FDE00F5D62E /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
+		1A14051327969FDE00F5D62E /* VideoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoCell.xib; sourceTree = "<group>"; };
 		27AC9C51A44B89C024F3EEAA /* Pods_AdForest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdForest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C2A49835B1E8A0B4FBE203B /* Pods_AdForestUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdForestUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		40669BC4F56DF9BA67C9F467 /* Pods-AdForest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdForest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AdForest/Pods-AdForest.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1966,6 +1974,8 @@
 				182690DA208742E100E2C966 /* CategoryFeatureCell.swift */,
 				182690D62087429300E2C966 /* CategoryCell.swift */,
 				182690D8208742A600E2C966 /* CategoryCollectionCell.swift */,
+				1A14050A27965D7800F5D62E /* CategoryVideoCell.swift */,
+				1A14050B27965D7800F5D62E /* CategoryVideoCell.xib */,
 			);
 			path = CategoryController;
 			sourceTree = "<group>";
@@ -3626,6 +3636,7 @@
 		18DA073F205F96050021FA7E /* DetailsSectionCell */ = {
 			isa = PBXGroup;
 			children = (
+				1A14051127969F6300F5D62E /* VideoCell */,
 				96B6E97824EAB742006F6C2C /* ContactWithSellerCell */,
 				181DDA87233356E6001FF048 /* ReplyReactionCell */,
 				18B34B942164B4E700F8FA89 /* LoadMoreCell */,
@@ -3705,6 +3716,15 @@
 				18FE9C57236811A500E8756F /* MapBoxPlacesViewController.swift */,
 			);
 			path = MapBoxPlaces;
+			sourceTree = "<group>";
+		};
+		1A14051127969F6300F5D62E /* VideoCell */ = {
+			isa = PBXGroup;
+			children = (
+				1A14051227969FDE00F5D62E /* VideoCell.swift */,
+				1A14051327969FDE00F5D62E /* VideoCell.xib */,
+			);
+			path = VideoCell;
 			sourceTree = "<group>";
 		};
 		5DE79EEDB704060570E91B76 /* Frameworks */ = {
@@ -4152,6 +4172,7 @@
 				18D22CAE270C430900DE6EA6 /* AppleNib.xib in Resources */,
 				185B13C8207CB2E300914AF0 /* CommentCell.xib in Resources */,
 				186A9FAA2080F56D008E646C /* AddDetailProfileCell.xib in Resources */,
+				1A14051527969FE000F5D62E /* VideoCell.xib in Resources */,
 				18196DFD2149185100F6515E /* CategoryDetailCell.xib in Resources */,
 				18E9FB922058F4AF00B998A6 /* WebViewCell.xib in Resources */,
 				18D8DCB121A6C46D008888BA /* CustomHeader.xib in Resources */,
@@ -4167,6 +4188,7 @@
 				1836447825DA4E430031CDAA /* ChatImages.xib in Resources */,
 				180DC4082057C9FC00A75C60 /* BlogCell.xib in Resources */,
 				CB8F42C8252AF159009E8F0F /* MarvelContactWithSellerCell.xib in Resources */,
+				1A14050D27965D7900F5D62E /* CategoryVideoCell.xib in Resources */,
 				18BBFA942051098C0067662F /* LaunchScreen.storyboard in Resources */,
 				180519DC215A113100F74662 /* AboutAppCell.xib in Resources */,
 				1836449825DA9B440031CDAA /* ChatFiles.xib in Resources */,
@@ -4487,6 +4509,7 @@
 				18CE381925DD4F0C0053A299 /* OverlayView.swift in Sources */,
 				180DC4072057C9FC00A75C60 /* BlogCell.swift in Sources */,
 				1852B0D5208324EA0014AF99 /* SentOfferChatRoot.swift in Sources */,
+				1A14051427969FDE00F5D62E /* VideoCell.swift in Sources */,
 				18BBFADA20510FA90067662F /* SettingsRoot.swift in Sources */,
 				CB43715F2535D00C00118E32 /* MultiAdsTableViewCell.swift in Sources */,
 				18D22CBD270C5DD500DE6EA6 /* EmailNib.swift in Sources */,
@@ -4874,6 +4897,7 @@
 				18BBFB14205166850067662F /* InactiveAdsController.swift in Sources */,
 				18108E692092F91F0020D440 /* AdPostImagesRoot.swift in Sources */,
 				182690F72087651800E2C966 /* CategoryAdVideo.swift in Sources */,
+				1A14050C27965D7800F5D62E /* CategoryVideoCell.swift in Sources */,
 				185B3C74207E1E3400EDBBB4 /* AddDetailReply.swift in Sources */,
 				CBCC2973252CA112009ECC38 /* FooterMenuData.swift in Sources */,
 				18196DEB2148EDFD00F6515E /* LocationDetailCell.swift in Sources */,

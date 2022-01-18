@@ -16,6 +16,8 @@ import SwiftyGif
 import IQKeyboardManagerSwift
 import WebKit
 import GoogleMobileAds
+import AVKit
+
 class MarvelAdDetailViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, NVActivityIndicatorViewable , SimilarAdsDelegate, ReportPopToHomeDelegate, moveTomessagesDelegate,UISearchBarDelegate,NearBySearchDelegate,UIGestureRecognizerDelegate{
     
     
@@ -38,6 +40,7 @@ class MarvelAdDetailViewController: UIViewController,UITableViewDelegate, UITabl
             tableView.register(UINib(nibName: CommentCell.className, bundle: nil), forCellReuseIdentifier: CommentCell.className)
             tableView.register(UINib(nibName: LoadMoreCell.className, bundle: nil), forCellReuseIdentifier: LoadMoreCell.className)
             tableView.register(UINib(nibName: ReplyReactionCell.className, bundle: nil), forCellReuseIdentifier: ReplyReactionCell.className)
+            tableView.register(UINib(nibName: "VideoCell", bundle: nil), forCellReuseIdentifier: "VideoCell")
         }
     }
     
@@ -140,7 +143,9 @@ class MarvelAdDetailViewController: UIViewController,UITableViewDelegate, UITabl
     var fromAdDetail = false
     var fromAdPost = false
     var whatsAppNum = ""
-    var isPhoneNumberVerified = false
+    var isPhoneNumberVerified = false    
+    var videoUrl = ""
+    
     //MARK:- View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -383,7 +388,7 @@ class MarvelAdDetailViewController: UIViewController,UITableViewDelegate, UITabl
     //MARK:- Table View Delegate Methods
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 12
+        return 13
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -427,6 +432,10 @@ class MarvelAdDetailViewController: UIViewController,UITableViewDelegate, UITabl
             }
         }
         else if section == 10 {
+            return 1
+        }
+        
+        else if section == 12 {
             return 1
         }
         
@@ -1211,6 +1220,19 @@ class MarvelAdDetailViewController: UIViewController,UITableViewDelegate, UITabl
             cell.collectionView.reloadData()
             return cell
         }
+        
+        else if section == 12 {
+            let cell : VideoCell = tableView.dequeueReusableCell(withIdentifier: "VideoCell", for: indexPath) as! VideoCell
+            
+            if let url = NSURL(string: self.videoUrl) {
+                let player = AVPlayer(url: url as URL)
+                cell.controller.player = player
+    //            self.addChildViewController(cell.controller)
+            }
+            
+            return cell
+        }
+        
         return UITableViewCell()
     }
     
@@ -1324,6 +1346,14 @@ class MarvelAdDetailViewController: UIViewController,UITableViewDelegate, UITabl
         else if section == 11 {
             height = 230
         }
+        
+        else if section  == 12 {
+            if self.videoUrl.isEmpty {
+            } else {
+                height = 300
+            }
+        }
+        
         return height
     }
     
@@ -1467,6 +1497,7 @@ class MarvelAdDetailViewController: UIViewController,UITableViewDelegate, UITabl
         AddsHandler.addDetails(parameter: param, success: { (successResponse) in
             self.stopAnimating()
             if successResponse.success {
+                self.videoUrl = successResponse.data.adDetail.videoUrl
                 self.title = successResponse.data.pageTitle
                 self.whatsAppNum = successResponse.data.adDetail.phone
                 if successResponse.data.callNowPopup.isPhoneVerified != nil {

@@ -41,6 +41,8 @@ struct AddDetails {
     
     var adTimer : AddDetailAdTimer!
     var adTypeBar : AddDetailAdTypeBar!
+    
+    var videoUrl : String!
 
     /**
      * Instantiate the instance using the passed dictionary values to set the properties values
@@ -107,6 +109,8 @@ struct AddDetails {
         if let adTypeBarData = dictionary["ad_type_bar"] as? [String:Any]{
             adTypeBar = AddDetailAdTypeBar(fromDictionary: adTypeBarData)
         }
+        
+        videoUrl = dictionary["videoUrl"] as? String
     }
     
     /**
@@ -217,6 +221,11 @@ struct AddDetails {
         if adTypeBar != nil{
             dictionary["ad_type_bar"] = adTypeBar.toDictionary()
         }
+        
+        if videoUrl != nil{
+            dictionary["videoUrl"] = videoUrl
+        }
+        
         return dictionary
     }
     

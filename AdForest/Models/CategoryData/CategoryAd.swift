@@ -30,6 +30,8 @@ struct CategoryAd{
     var adImages : [CategoryImage]!
     var adLocation : CategoryLocation!
     
+    var videoUrl : String!
+    
     
     /**
      * Instantiate the instance using the passed dictionary values to set the properties values
@@ -86,6 +88,8 @@ struct CategoryAd{
         if let adLocationData = dictionary["ad_location"] as? [String:Any]{
             adLocation = CategoryLocation(fromDictionary: adLocationData)
         }
+        
+        videoUrl = dictionary["videoUrl"] as? String       
     }
     
     /**
@@ -163,6 +167,11 @@ struct CategoryAd{
         if adLocation != nil{
             dictionary["ad_location"] = adLocation.toDictionary()
         }
+        
+        if videoUrl != nil{
+            dictionary["videoUrl"] = videoUrl
+        }
+        
         return dictionary
     }
     

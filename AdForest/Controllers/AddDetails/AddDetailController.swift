@@ -16,6 +16,7 @@ import SwiftyGif
 import IQKeyboardManagerSwift
 import WebKit
 import GoogleMobileAds
+import AVKit
 
 class AddDetailController: UIViewController, UITableViewDelegate, UITableViewDataSource, NVActivityIndicatorViewable , SimilarAdsDelegate, ReportPopToHomeDelegate, moveTomessagesDelegate,UISearchBarDelegate,NearBySearchDelegate,UIGestureRecognizerDelegate {
     
@@ -39,6 +40,8 @@ class AddDetailController: UIViewController, UITableViewDelegate, UITableViewDat
             tableView.register(UINib(nibName: LoadMoreCell.className, bundle: nil), forCellReuseIdentifier: LoadMoreCell.className)
             
             tableView.register(UINib(nibName: ReplyReactionCell.className, bundle: nil), forCellReuseIdentifier: ReplyReactionCell.className)
+            
+            tableView.register(UINib(nibName: "VideoCell", bundle: nil), forCellReuseIdentifier: "VideoCell")
         }
     }
     
@@ -138,6 +141,7 @@ class AddDetailController: UIViewController, UITableViewDelegate, UITableViewDat
     var whizChatChatId = ""
     var whatsAppNum = ""
     var isPhoneVerified = false
+    var videoUrl = ""
 
     //MARK:- View Life Cycle
     override func viewDidLoad() {
@@ -461,7 +465,7 @@ class AddDetailController: UIViewController, UITableViewDelegate, UITableViewDat
     //MARK:- Table View Delegate Methods
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 12
+        return 13
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -505,6 +509,10 @@ class AddDetailController: UIViewController, UITableViewDelegate, UITableViewDat
             }
         }
         else if section == 10 {
+            return 1
+        }
+        
+        else if section == 12 {
             return 1
         }
         
@@ -1314,6 +1322,19 @@ class AddDetailController: UIViewController, UITableViewDelegate, UITableViewDat
             cell.collectionView.reloadData()
             return cell
         }
+        
+        else if section == 12 {
+            let cell : VideoCell = tableView.dequeueReusableCell(withIdentifier: "VideoCell", for: indexPath) as! VideoCell
+            
+            if let url = NSURL(string: self.videoUrl) {
+                let player = AVPlayer(url: url as URL)
+                cell.controller.player = player
+    //            self.addChildViewController(cell.controller)  
+            }
+            
+            return cell
+        }
+        
         return UITableViewCell()
     }
     
@@ -1425,6 +1446,14 @@ class AddDetailController: UIViewController, UITableViewDelegate, UITableViewDat
         else if section == 11 {
             height = 230
         }
+        
+        else if section  == 12 {
+            if self.videoUrl.isEmpty {
+            } else {
+                height = 300
+            }
+        }
+        
         return height
     }
     
@@ -1524,6 +1553,7 @@ class AddDetailController: UIViewController, UITableViewDelegate, UITableViewDat
         AddsHandler.addDetails(parameter: param, success: { (successResponse) in
             self.stopAnimating()
             if successResponse.success {
+                self.videoUrl = successResponse.data.adDetail.videoUrl
                 self.title = successResponse.data.pageTitle
                 self.whatsAppNum = successResponse.data.adDetail.phone
                 if successResponse.data.callNowPopup.isPhoneVerified != nil {

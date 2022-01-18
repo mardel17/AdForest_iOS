@@ -11,6 +11,7 @@ import NVActivityIndicatorView
 import DropDown
 import Firebase
 import IQKeyboardManagerSwift
+import AVKit
 
 class CategoryController: UIViewController, UITableViewDelegate, UITableViewDataSource, NVActivityIndicatorViewable, CategoryFeatureDelegate, CustomHeaderParameterDelegate, UISearchBarDelegate,NearBySearchDelegate,UIGestureRecognizerDelegate  {
     
@@ -87,6 +88,8 @@ class CategoryController: UIViewController, UITableViewDelegate, UITableViewData
 
             }
         }
+        
+        tableView.register(UINib(nibName: "CategoryVideoCell", bundle: nil), forCellReuseIdentifier: "CategoryVideoCell")
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -214,16 +217,24 @@ class CategoryController: UIViewController, UITableViewDelegate, UITableViewData
             cell.reloadData()
             return cell
         case 1:
-            let cell: CategoryCell =  tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath) as! CategoryCell
+//            let cell: CategoryCell =  tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath) as! CategoryCell
+            let cell: CategoryVideoCell =  tableView.dequeueReusableCell(withIdentifier: "CategoryVideoCell", for: indexPath) as! CategoryVideoCell
             let objData = dataArray[indexPath.row]
             
-            for image in objData.images {
-                if let imgUrl = URL(string: image.thumb) {
-                    cell.imgPicture.sd_setShowActivityIndicatorView(true)
-                    cell.imgPicture.sd_setIndicatorStyle(.gray)
-                    cell.imgPicture.sd_setImage(with: imgUrl, completed: nil)
-                }
+//            for image in objData.images {
+//                if let imgUrl = URL(string: image.thumb) {
+//                    cell.imgPicture.sd_setShowActivityIndicatorView(true)
+//                    cell.imgPicture.sd_setIndicatorStyle(.gray)
+//                    cell.imgPicture.sd_setImage(with: imgUrl, completed: nil)
+//                }
+//            }
+            
+            if let videoUrl = NSURL(string: objData.videoUrl) {               
+                let player = AVPlayer(url: videoUrl as URL)
+                cell.controller.player = player
+    //            self.addChildViewController(cell.controller)
             }
+            
             if let title = objData.adTitle {
                 cell.lblName.text = title
             }
@@ -237,6 +248,7 @@ class CategoryController: UIViewController, UITableViewDelegate, UITableViewData
             if let catName = objData.adCatsName {
                 cell.lblPath.text = catName
             }
+            
             return cell
         default:
             break
@@ -300,7 +312,7 @@ class CategoryController: UIViewController, UITableViewDelegate, UITableViewData
                 return 0
             }
         case 1:
-            return 110
+            return 412
         default:
             return 0
         }
